@@ -11,3 +11,83 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header{
+	text-align: center;
+	font-size: 30px;
+	font-weight: 100;
+}
+
+.container {
+    display: flex;
+    margin: 5%;
+    margin-top: 2%;
+    margin-bottom: 0;
+}
+
+.container .item{
+	flex:1;
+	text-align: center;
+	margin: 6px;
+	font-size: 16px;
+	font-weight: 100;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+}
+
+.index{
+	font-size: 12px
+}
+
+.actions{
+	text-align: center;
+}
+
+.actions input{
+	border-color: #cccccc;
+    padding: 10px;
+    font-size: 13px;
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    box-shadow: 0px 0px 0px 0px rgba(42,42,42,.75);
+    font-weight: normal;
+}
+
+.actions button {
+	margin-left: 10px;
+	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color:#77b55a;
+	border-radius:5px;
+	border:0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:13px;
+	padding:10px 25px;
+	text-decoration:none;
+}
+
+.reset{
+	background:linear-gradient(to bottom, #128db3 5%, #2887c7 100%) !important;
+}
+
+.not_found{
+	background: #fb4a4a;
+	color: #fff;
+}
+
+.found{
+	background: #4bcc7f;
+	color: #fff;
+}
+
+.msg{
+	text-align: center;
+	font-size: 12px;
+}
