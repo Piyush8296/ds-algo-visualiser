@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { random_int_between_range } from "../../utils/random_int_between_range";
-import ListItem from "../list_item"
+import { random_int_between_range } from "../../utils/random_int_between_range"; // able to generate random numbers specified between a certain range
+import ListItem from "../list_item" // a card  getting displayed for each array item
 
-const ELEMENT_COUNT = 15;
-const MIN_VAL = 6;
-const MAX_VAL = 900;
+const ELEMENT_COUNT = 15; //total length of array
+const MIN_VAL = 6; // minimum value in an array
+const MAX_VAL = 900; // max value in an array
 
 export default class LinearSearch extends Component {
 
@@ -12,12 +12,12 @@ export default class LinearSearch extends Component {
         super(props);
 
         this.state = {
-            list_of_numbers: [],
-            classes:[],
-            item_to_be_searched:0,
-            message:"",
-            item_found:false,
-            element_pos:-1
+            list_of_numbers: [], //array in which item is to searched
+            classes:[], // just for visualisations
+            item_to_be_searched:0, // search item
+            message:"", // messagee if item found or not
+            item_found:false, // toggle message display
+            element_pos:-1 // index at which that item was found
         };
 
         this.submit = this.submit.bind(this);
@@ -25,6 +25,7 @@ export default class LinearSearch extends Component {
         this.generate_or_reset_list = this.generate_or_reset_list.bind(this);
     }
 
+    // creates random list of array and also resets the visual state using css
     generate_or_reset_list(){
     	const list = [];
     	const classes = [];
@@ -37,10 +38,12 @@ export default class LinearSearch extends Component {
         this.setState({ list_of_numbers:list,classes});
     }
 
+    //responsible for user input, getting a search item from a user
     handleChange(event) {
 	  	this.setState({item_to_be_searched: event.target.value});
 	}
 
+	// will be responsible for making a search after a click by user
 	submit(){
 		const classes = []
 		for (let i = 0; i < ELEMENT_COUNT; i++) {
@@ -59,6 +62,7 @@ export default class LinearSearch extends Component {
 		}
 	}
 
+	// helps in showing the search visually, by changing CSS classes for elements
 	animate_search_visual(length,item,found){
 		for (let i = 0; i < length+1; i++) {
 
@@ -79,19 +83,11 @@ export default class LinearSearch extends Component {
 						this.setState({item_found:true,message:`List does not contain any value ${item}`,element_pos:-1})
 					}
 				}
-				/*if(data["i"] == i){
-					this.state.classes[i] = "found"
-					this.setState({item_found:true,message:`Value ${item} found at index ${i}`,element_pos:i})
-					return;
-				}else{
-					this.setState({item_found:true,message:`List does not contain any value ${item}`,element_pos:-1})
-					this.state.classes[i] = "not_found"
-				}*/
 			},(i+1)*1000)
-			//break;
 		}
 	}
 
+	// returns the specifc item and index if element is present, else null
 	perform_linear_search(arr,item){
 		for (var i = 0; i < arr.length; i++) {
 		    if (arr[i] == item) {
